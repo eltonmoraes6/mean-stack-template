@@ -1,0 +1,96 @@
+<div class="container" ng-cloak>
+    <div class="row mb-4">
+        <div class="col-lg-6 col-md col-sm mx-auto">
+            <h2 class="text-center pt-4">{{'TASK_VIEW_PAGE_TITLE' | translate}}</h2>
+            <div class="alert alert-success" ng-message="required" ng-show="checktask.successMsg">
+                {{checktask.successMsg}}
+            </div>
+            <div class="d-flex flex-row-reverse global-cursor">
+                <div class="btn-group">
+                    <i class="fas fa-ellipsis-v text-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"></i>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item text-info global-cursor" type="button"
+                            ng-click="checktask.edit(checktask.data._id)">
+                            <i class="fas fa-edit text-info"></i> {{'EDIT_BTN' | translate}}
+                        </button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item text-danger global-cursor" type="button"
+                            ng-click="checktask.delete(checktask.data._id)">
+                            <i class="far fa-trash-alt text-danger"></i> {{'DELETE_BTN' | translate}}
+                        </button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item text-success global-cursor" type="button"
+                            ng-click="goView('/task')">
+                            <i class="fas fa-plus-circle text-success"></i> {{'ADD_TASK' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+                <h5>&nbsp;</h5>
+                <div class="text-muted small">{{checktask.date}}</div>
+            </div>
+            <form novalidate>
+                <img ng-src="{{checktask.data.avatar}}" class="img_ptofile mx-auto d-block"
+                    alt="{{checktask.data.title}}">
+                <div class="ed-avatar global-cursor" ng-click="checktask.editAvatar(checktask.data._id)">
+                    {{'EDIT_AVATAR' | translate}}
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">
+                        <i class="fas fa-signature"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="title" ng-disabled="checktask.submit"
+                            ng-model="checktask.data.title">
+                        <div class="alert alert-danger" role="alert" ng-show="checktask.errorMsg.title">
+                            {{checktask.errorMsg.title}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-sm-2 col-form-label">
+                        <i class="fas fa-info-circle"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" class="form-control" name="description"
+                            ng-disabled="checktask.submit" ng-model="checktask.data.description" rows="3"></textarea>
+                        <div class="alert alert-danger" role="alert" ng-show="checktask.errorMsg.description">
+                            {{checktask.errorMsg.description}}</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="author" class="col-sm-2 col-form-label"><i class="fas fa-file-signature"></i></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="author" ng-disabled="checktask.submit"
+                            ng-model="checktask.data.author">
+                        <div class="alert alert-danger" role="alert" ng-show="checktask.errorMsg.author">
+                            {{checktask.errorMsg.author}}</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="genres" class="col-sm-2 col-form-label"><i class="fas fa-tags"></i></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="genres" ng-disabled="checktask.submit"
+                            ng-model="checktask.data.genres">
+                        <div class="alert alert-danger" role="alert" ng-show="checktask.errorMsg.genres">
+                            {{checktask.errorMsg.genres}}</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><i class="fas fa-book"></i></label>
+                    <div class="col-sm-10">
+                        <div class="custom-control custom-checkbox my-1 mr-sm-2 pt-3"
+                            ng-repeat="item in checktask.data.checkdata">
+                            <input type="checkbox" class="custom-control-input global-curso" id="{{item.volume}}"
+                                ng-model="item.value">
+                            <label class="custom-control-label global-cursor"
+                                for="{{item.volume}}">{{item.volume}}</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

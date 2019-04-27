@@ -1,0 +1,100 @@
+<div class="container" ng-cloak>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-3 mx-auto">
+                <a href="" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+                    <i class="fas fa-plus"></i> {{'ADMIN_ADD_POST' | translate}}
+                </a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
+                    <i class="fas fa-plus"></i> {{'ADMIN_ADD_CATEGORY' | translate}}
+                </a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
+                    <i class="fas fa-plus"></i> {{'ADMIN_ADD_USER' | translate}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-lg-8 col-md col-sm mb-4 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title text-center">{{'ADMIN_TITLE' | translate}}</h2>
+                </div>
+                <div class="form-group row">
+                    <form class="form-inline my-2 my-lg-0 mx-auto">
+                        <input class="form-control mr-sm-2" type="search" placeholder="{{'ADMIN_SEARCH' | translate}}"
+                            aria-label="Search" ng-model="search.$">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="card-body">
+
+                    <div class="table-responsive-md table-responsive-lg table-responsive-xl">
+                        <table class="table table-striped">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">{{'ADMIN_ID' | translate }}</th>
+                                    <th scope="col">{{'ADMIN_AVATAR' | translate }}</th>
+                                    <th scope="col">{{'ADMIN_NAME' | translate }}</th>
+                                    <th scope="col">{{'ADMIN_MAIL' | translate }}</th>
+                                    <th scope="col">{{'ADMIN_VIEW' | translate }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="data in admin.data | filter:search:strict">
+                                    <th scope="row">{{data._id}}</th>
+                                    <td>
+                                        <img class="rounded-circle" ng-src="{{data.avatar}}" alt="{{data.name}}"
+                                            style="max-width: 40px">
+                                    </td>
+                                    <td>{{data.name}}</td>
+                                    <td>{{data.email}}</td>
+                                    <td>
+                                        <a href="" ng-click="admin.getUserData(data._id)">
+                                            <i class="fas fa-plus-circle text-success"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center bg-primary text-white mb-3">
+                <div class="card-body">
+                    <h3>{{'ADMIN_POSTS' | translate }}</h3>
+                    <h4 class="display-4">
+                        <i class="fas fa-pencil-alt"></i> 0
+                    </h4>
+                    <a href="" class="btn btn-outline-light btn-sm">{{'ADMIN_VIEW' | translate }}</a>
+                </div>
+            </div>
+            <div class="card text-center bg-success text-white mb-3">
+                <div class="card-body">
+                    <h3>{{'ADMIN_CATEGORIES' | translate }}</h3>
+                    <h4 class="display-4">
+                        <i class="fas fa-folder"></i> 0
+                    </h4>
+                    <a href="" class="btn btn-outline-light btn-sm">{{'ADMIN_VIEW' | translate }}</a>
+                </div>
+            </div>
+            <div class="card text-center bg-warning text-white mb-3">
+                <div class="card-body">
+                    <h3>{{'ADMIN_USERS' | translate }}</h3>
+                    <h4 class="display-4">
+                        <i class="fas fa-users"></i> {{admin.count}}
+                    </h4>
+                    <a href="" class="btn btn-outline-light btn-sm">{{'ADMIN_VIEW' | translate }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container" ng-cloak>
+    <div class="col-lg-6 col-md col-sm mx-auto">
+        <h2 class="text-center pt-4">{{'EDIT_TASK_PAGE_TITLE' | translate}}</h2>
+        <div class="alert alert-success" ng-message="required" ng-show="editTask.successMsg">
+            {{editTask.successMsg}}
+        </div>
+        <form novalidate>
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">
+                    <i class="fas fa-signature"></i>
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="title" ng-disabled="editTask.submit"
+                        ng-model="editTask.data.title" autofocus>
+                    <div class="alert alert-danger" role="alert" ng-show="editTask.errorMsg.title">
+                        {{editTask.errorMsg.title}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">
+                    <i class="fas fa-info-circle"></i>
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="description" ng-disabled="editTask.submit"
+                        ng-model="editTask.data.description">
+                    <div class="alert alert-danger" role="alert" ng-show="editTask.errorMsg.description">
+                        {{editTask.errorMsg.description}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="author" class="col-sm-2 col-form-label">
+                    <i class="fas fa-file-signature"></i>
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="author" ng-disabled="editTask.submit"
+                        ng-model="editTask.data.author">
+                    <div class="alert alert-danger" role="alert" ng-show="editTask.errorMsg.author">
+                        {{editTask.errorMsg.author}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="genres" class="col-sm-2 col-form-label">
+                    <i class="fas fa-tags"></i>
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="genres" ng-disabled="editTask.submit"
+                        ng-model="editTask.data.genres">
+                    <div class="alert alert-danger" role="alert" ng-show="editTask.errorMsg.genres">
+                        {{editTask.errorMsg.genres}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row ml-4">
+                <label class="col-sm-1 col-form-label">&nbsp;</label>
+                <div class="col-sm-10">
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2"
+                        ng-repeat="data in editTask.data.checkdata">
+                        <input type="checkbox" class="custom-control-input" id="{{data.volume}}" ng-model="data.value">
+                        <label class="custom-control-label" for="{{data.volume}}">{{data.volume}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">&nbsp;</label>
+                <div class="col-sm-10">
+                    <button class="btn btn-block btn-warning btn-sm" ng-disabled="editTask.submit"
+                        ng-click="editTask.edit(edit.data._id, edit.data)">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

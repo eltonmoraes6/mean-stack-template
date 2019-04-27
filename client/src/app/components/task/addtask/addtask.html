@@ -1,0 +1,109 @@
+<div class="container" ng-cloak>
+    <div class="row">
+        <div class="col-lg-6 col-md col-sm mx-auto">
+            <h2 class="text-center pt-4">{{'CREATE_TASK_PAGE_TITLE' | translate}}</h2>
+            <div class="alert alert-success" ng-message="required" ng-show="task.successMsg">
+                {{task.successMsg}}
+            </div>
+            <form name="taskForm" novalidate>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">
+                        <i class="fas fa-signature"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="title" id="title" class="form-control" ng-model="task.data.title"
+                            ng-required="true" autofocus placeholder="{{'TASK_TITLE' | translate}}"
+                            ng-disabled="task.send">
+                        <div class="alert alert-danger" role="alert" ng-show="task.errorMsg.title">
+                            {{task.errorMsg.title}}</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">
+                        <i class="fas fa-info-circle"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <textarea name="description" id="description" class="form-control"
+                            ng-model="task.data.description" ng-required="true"
+                            placeholder="{{'TASK_DESCRIPTION' | translate}}" ng-disabled="task.send"
+                            rows="3"></textarea>
+                        <div class="alert alert-danger" role="alert" ng-show="task.errorMsg.description">
+                            {{task.errorMsg.description}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="number" class="col-2 col-form-label">
+                        <i class="fas fa-book"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="number" min="1" id="number"
+                            placeholder="{{'TASK_NUMBER' | translate}}" ng-model="task.data.number" ng-required="true"
+                            ng-disabled="task.send">
+                        <div class="alert alert-danger" role="alert" ng-show="task.errorMsg.number">
+                            {{task.errorMsg.number}}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">
+                        <i class="fas fa-file-signature"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="author" id="author" class="form-control" ng-model="task.data.author"
+                            ng-required="true" placeholder="{{'TASK_AUTHOR' | translate}}" ng-disabled="task.send">
+                        <div class="alert alert-danger" role="alert" ng-show="task.errorMsg.author">
+                            {{task.errorMsg.author}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">
+                        <i class="fas fa-tags"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="genres" id="genres" class="form-control" lang="{{'LANG' | translate}}"
+                            ng-model="task.data.genres" ng-required="true" placeholder="{{'TASK_GENRES' | translate}}"
+                            ng-disabled="task.send">
+                        <div class="alert alert-danger" role="alert" ng-show="task.errorMsg.genres">
+                            {{task.errorMsg.genres}}
+                        </div>
+                    </div>
+                </div>
+                <img class="img-fluid img-thumbnail mx-auto d-block" style="width: 40%"
+                    ng-src="{{image_source || task.img_default}}">
+                <div class="row">
+                    <span class="col-sm-2">&nbsp;</span>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="avatar" name="avatar"
+                                onchange="angular.element(this).scope().uploadedFile(this)" ng-disabled="task.send"
+                                file-model="avatar" ng-required="true">
+                            <label class="custom-file-label" for="avatar" data-browse="{{'DATA_BROWSE' | translate}}">
+                                {{'TASK_IMG' | translate}}
+                            </label>
+                            <div class="alert alert-danger" role="alert" ng-show="task.errorMsg.file">
+                                {{task.errorMsg.file}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center" ng-show="task.loading">
+                    <div class="spinner-border spinner-border-sm text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="form-group row pt-4">
+                    <label class="col-sm-2 col-form-label">&nbsp;</label>
+                    <div class="col-sm-10">
+                        <button class="btn btn-block btn-warning btn-sm" ng-click="task.task(data);" type="submit"
+                            ng-disabled="task.send">
+                            {{'TASK_CREATE' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
