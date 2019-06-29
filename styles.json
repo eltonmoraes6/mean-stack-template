@@ -1,0 +1,5 @@
+[
+    "./client/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css",
+    "./client/node_modules/@fortawesome/fontawesome-free/css/all.css",
+    "./client/src/css/**/*.css"
+]

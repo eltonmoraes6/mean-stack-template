@@ -18,28 +18,31 @@
                 <li class="nav-item dropdown" ng-show="main.isLoggedIn">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        {{'NAV_TASK' | translate}}
+                        <img ng-src="{{main.decoded.avatar || main.decoded.google_picture || main.decoded.facebook_picture}}"
+                            alt="{{main.decoded.name}}" style="width: 20px; height: 20px" class="rounded-circle">
+                        <span> {{'WELCOME' | translate}}, {{main.decoded.name}}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" ng-click="goView('/listtask')">{{'NAV_TASK_ALL' | translate}}</a>
+                        <a class="dropdown-item" ng-click="goView('/admin')" ng-show="main.isLoggedIn && main.role">
+                            {{'NAV_ADMIN' | translate}}
+                        </a>
+                        <a class="dropdown-item" ng-click="goView('/profile')">
+                            {{'NAV_PROFILE' | translate}}
+                        </a>
                         <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" ng-click="goView('/listtask')">{{'NAV_TASK_ALL' | translate}}</a>
                         <a class="dropdown-item" ng-click="goView('/task')">{{'NAV_TASK_ADD' | translate}}</a>
-                    </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" ng-click="goView('/logout'); main.logout();">
+                            {{'LOGOUT' | translate}}
+                        </a>
                 </li>
-                <li class="nav-item" ng-show="main.isLoggedIn && main.role">
-                    <a class="nav-link" ng-click="goView('/admin')">{{'NAV_ADMIN' | translate}}</a>
-                </li>
-                <li class="nav-item" ng-show="main.isLoggedIn">
-                    <a class="nav-link" ng-click="goView('/profile')">{{'NAV_PROFILE' | translate}}</a>
-                </li>
+
                 <li class="nav-item" ng-show="!main.isLoggedIn">
                     <a class="nav-link" ng-click="goView('/login')">{{'NAV_SIGNIN' | translate}}</a>
                 </li>
                 <li class="nav-item" ng-show="!main.isLoggedIn">
                     <a class="nav-link" ng-click="goView('/register')">{{'NAV_SIGNUP' | translate}}</a>
-                </li>
-                <li class="nav-item" ng-show="main.isLoggedIn">
-                    <a class="nav-link" ng-click="goView('/logout'); main.logout();">{{'LOGOUT' | translate}}</a>
                 </li>
             </ul>
         </div>

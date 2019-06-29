@@ -1,7 +1,8 @@
 <div class="header" ng-cloak>
     <a class="active" ng-click="goView('/profile'); closeSidenav();" ng-show="main.isLoggedIn">
         <div class="wf-byline">
-            <img ng-src="{{main.decoded.avatar || main.decoded.google_picture || main.decoded.facebook_picture}}" alt="{{main.decoded.name}}">
+            <img ng-src="{{main.decoded.avatar || main.decoded.google_picture || main.decoded.facebook_picture}}"
+                alt="{{main.decoded.name}}">
         </div>
     </a>
     <div ng-show="main.isLoggedIn" class="ed-avatar">
@@ -25,6 +26,12 @@
             <i class="fas fa-2x fa-user fa-fw fas-icon text-white"></i>
             <a>{{'NAV_PROFILE' | translate}}</a>
         </li>
+
+        <li ng-show="main.isLoggedIn" ng-click="goView('/chat'); closeSidenav();" class="menu-icon">
+            <i class="fas fa-2x fa-chart-area fa-fw fas-icon text-white"></i>
+            <a>chat</a>
+        </li>
+
         <li ng-show="main.isLoggedIn" ng-click="goView('/task'); closeSidenav();" class="menu-icon">
             <i class="fas fa-2x fa-fw fas-icon fa-tasks"></i>
             <a>{{'NAV_TASK_ADD' | translate}}</a>
@@ -41,13 +48,11 @@
             <i class="fas fa-2x fa-sign-out-alt fa-fw fas-icon text-white"></i>
             <a>{{'LOGOUT' | translate}}</a>
         </li>
-        <li ng-show="!main.isLoggedIn"  ng-click="goView('/login'); closeSidenav();"
-            class="menu-icon">
+        <li ng-show="!main.isLoggedIn" ng-click="goView('/login'); closeSidenav();" class="menu-icon">
             <i class="fas fa-2x fa-sign-in-alt fa-fw fas-icon text-white"></i>
             <a>{{'NAV_SIGNIN' | translate}}</a>
         </li>
-        <li ng-show="!main.isLoggedIn" ng-click="goView('/register'); closeSidenav();"
-            class="menu-icon">
+        <li ng-show="!main.isLoggedIn" ng-click="goView('/register'); closeSidenav();" class="menu-icon">
             <i class="fas fa-2x fa-user-plus fa-fw fas-icon text-white"></i>
             <a>{{'NAV_SIGNUP' | translate}}</a>
         </li>

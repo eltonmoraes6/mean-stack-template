@@ -1,5 +1,7 @@
-angular.module('LShare')
-    .controller('homeCtrl', [function () {
-        const app = this;
-        app.title = "Home";
-    }]);
+(function () {
+    angular.module('LShare')
+        .controller('homeCtrl', [function () {
+            const app = this;
+            app.title = "Home";
+        }]);
+})();

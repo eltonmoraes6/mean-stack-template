@@ -73,5 +73,6 @@
     "ADMIN_ADD_POST": "Adicionar postagem",
     "ADMIN_ADD_CATEGORY": "Adicionar Categoria",
     "ADMIN_ADD_USER": "Adicionar Usuário",
-    "LOGGIN_WITH": "Conecte-se com:"
+    "LOGGIN_WITH": "Conecte-se com:",
+    "CHAT_MSG": "Digite uma messagem"
 }

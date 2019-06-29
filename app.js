@@ -58,7 +58,7 @@ cloudinary.config({
 
 //Static Files
 app.use('/uploads', express.static('public/uploads'));
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/src'));
 
 //Routes
 app.use('/api/admin', require('./src/routes/admin'));

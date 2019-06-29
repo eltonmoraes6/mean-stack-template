@@ -50,7 +50,7 @@
                                 <tr ng-repeat="data in admin.data | filter:search:strict">
                                     <th scope="row">{{data._id}}</th>
                                     <td>
-                                        <img class="rounded-circle" ng-src="{{data.avatar}}" alt="{{data.name}}"
+                                        <img class="rounded-circle" ng-src="{{data.avatar || data.google_picture || data.facebook_picture}}" alt="{{data.name}}"
                                             style="max-width: 40px">
                                     </td>
                                     <td>{{data.name}}</td>
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-md col-sm">
             <div class="card text-center bg-primary text-white mb-3">
                 <div class="card-body">
                     <h3>{{'ADMIN_POSTS' | translate }}</h3>

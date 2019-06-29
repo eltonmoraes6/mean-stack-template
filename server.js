@@ -6,6 +6,8 @@ const app = require('./app');
 //settings
 app.set('port', process.env.PORT || 3000);
 const server = http.createServer(app);
+const io = require('socket.io')(server);
+require('./sockets')(io);
 
 //Start the Server
 server.listen(app.get('port'), () => {

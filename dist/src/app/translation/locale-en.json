@@ -73,5 +73,6 @@
     "ADMIN_ADD_POST": "Add Post",
     "ADMIN_ADD_CATEGORY": "Add Category",
     "ADMIN_ADD_USER": "Add User",
-    "LOGGIN_WITH": "Signin with:"
+    "LOGGIN_WITH": "Signin with:",
+    "CHAT_MSG": "Type a message"
 }

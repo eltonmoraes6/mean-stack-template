@@ -20,7 +20,7 @@ ctrl.find_all_users = async (req, res) => {
                 .sort({
                     createdAt: -1
                 })
-                .select('email name avatar role _id ');
+                .select('email name avatar google_picture facebook_picture role _id ');
 
             if (users) {
                 const respose = {
@@ -32,6 +32,8 @@ ctrl.find_all_users = async (req, res) => {
                             password: doc.password,
                             avatar: doc.avatar,
                             role: doc.role,
+                            google_picture: doc.google_picture,
+                            facebook_picture: doc.facebook_picture,
                             _id: doc._id,
                             request: {
                                 type: 'GET',
@@ -80,7 +82,8 @@ ctrl.get_user_by_id = async (req, res) => {
         const user = await User.findById({
                 _id: id
             })
-            .select('name email avatar role active _id');
+            .select('email name avatar google_picture facebook_picture role active _id ');
+
         if (user) {
             res.status(200).json({
                 success: true,

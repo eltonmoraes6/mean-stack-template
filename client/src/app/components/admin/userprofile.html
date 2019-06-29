@@ -11,8 +11,8 @@
             <div class="d-flex flex-row-reverse global-cursor" data-toggle="tooltip" data-placement="top"
                 title="{{'SETTINGS' | translate}}" ng-show="admin.userDisable">
                 <div class="btn-group">
-                    <i class="fas fa-fw fa-cog text-primary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"></i>
+                    <i class="fas fa-fw fa-cog text-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"></i>
                     <div class="dropdown-menu dropdown-menu-right">
                         <button class="dropdown-item text-info global-cursor" type="button" ng-click="admin.enable()">
                             <i class="fas fa-edit text-info"></i> {{'EDIT_BTN' | translate}}
@@ -25,7 +25,8 @@
                     </div>
                 </div>
             </div>
-            <img ng-src="{{admin.userAvatar}}" class="rounded-circle mx-auto d-block mb-4" alt="{{admin.name}}">
+            <img ng-src="{{admin.userAvatar.avatar || admin.userAvatar.google_picture || admin.userAvatar.facebook_picture}}"
+                class="rounded-circle mx-auto d-block mb-4" alt="{{admin.name}}">
             <form novalidate>
                 <div class="form-group row">
                     <label for="id" class="col-sm-2 col-form-label">

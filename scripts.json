@@ -1,0 +1,20 @@
+[
+    "./client/node_modules/jquery/dist/jquery.js",
+    "./client/src/js/popper/popper.min.js",
+    "./client/node_modules/bootstrap/dist/js/bootstrap.js",
+    "./client/node_modules/@fortawesome/fontawesome-free/js/all.js",
+    "./client/node_modules/socket.io-client/dist/socket.io.js",
+    "./client/node_modules/angular/angular.js",
+    "./client/node_modules/angular-route/angular-route.js",
+    "./client/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js",
+    "./client/node_modules/angular-cookies/angular-cookies.js",
+    "./client/node_modules/angular-sanitize/angular-sanitize.js",
+    "./client/node_modules/angular-translate/dist/angular-translate.js",
+    "./client/node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.js",
+    "./client/node_modules/messageformat/messageformat.js",
+    "./client/node_modules/angular-translate-loader-url/angular-translate-loader-url.js",
+    "./client/node_modules/angular-translate-storage-local/angular-translate-storage-local.js",
+    "./client/node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js",
+    "./client/node_modules/angular-translate-handler-log/angular-translate-handler-log.js",
+    "./client/src/app/**/*.js"
+]

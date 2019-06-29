@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Style File-->
-    <link rel="stylesheet" type="text/css" href="./src/styles/main.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/main.min.css">
 </head>
 
 <body ng-cloak>
@@ -41,14 +41,14 @@
     </div>
     <div id="backdrop" class="sn-backdrop" ng-show="main.loadme"></div>
     <div id="sidenav" class="sn-sidenav" ng-show="main.loadme">
-        <div ng-include="'src/app/components/shared/sideNav.html'"></div>
+        <div ng-include="'./app/components/shared/sideNav.html'"></div>
     </div>
     <div id="content" class="sn-content" ng-show="main.loadme">
-        <div ng-include="'src/app/components/shared/navbar.html'"></div>
+        <div ng-include="'./app/components/shared/navbar.html'"></div>
         <div ng-view></div>
     </div>
-    <div ng-include="'src/app/components/shared/footer.html'" class="main-content" ng-show="main.loadme"></div>
-    <script type="text/javascript" src="./src/scripts/main.min.js"></script>
+    <div ng-include="'./app/components/shared/footer.html'" class="main-content" ng-show="main.loadme"></div>
+    <script type="text/javascript" src="./scripts/main.min.js"></script>
 </body>
 
 </html>
